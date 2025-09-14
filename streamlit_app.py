@@ -3,7 +3,22 @@ import pandas as pd
 import warnings
 from app.scraper import get_stock_data
 from app.database import connect_to_db, save_data_to_db
+import streamlit as st
+import mysql.connector
 
+try:
+    db = mysql.connector.connect(
+        host=st.secrets["DB_HOST"],
+        user=st.secrets["DB_USER"],
+        password=st.secrets["DB_PASSWORD"],
+        database=st.secrets["DB_NAME"],
+        port=int(st.secrets["DB_PORT"])
+    )
+    cursor = db.cursor()
+    cursor.execute("SELECT 1")
+    st.success("Database connection and simple query succeeded!")
+except Exception as e:
+    st.error(f"Database connection failed: {e}")
 warnings.filterwarnings("ignore", category=FutureWarning)
 
 st.set_page_config(page_title="Stock Data Scraper (Streamlit)", page_icon="📈", layout="centered")
