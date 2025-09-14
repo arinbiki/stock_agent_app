@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Data Saved</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .container { max-width: 700px; margin: 60px auto; background: #fff; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); padding: 32px 28px 24px 28px; }
+        h1 { text-align: center; color: #2d3a4b; margin-bottom: 28px; font-size: 2rem; letter-spacing: 1px; }
+        .success { color: #217a36; font-weight: 600; text-align: center; margin-bottom: 18px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 18px; }
+        th, td { border: 1px solid #bfc9d1; padding: 8px; text-align: center; }
+        th { background: #f4f8fb; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Stock Data Saved</h1>
+        <div class="success">Data for <b>{{ ticker }}</b> has been saved to your MySQL database!</div>
+        <table>
+            <thead>
+                <tr>
+                    {% for col in df.columns %}
+                    <th>{{ col }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in df.values[:10] %}
+                <tr>
+                    {% for val in row %}
+                    <td>{{ val }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div style="text-align:center; margin-top:24px;">
+            <a href="/" style="color:#3a8dde; font-weight:600;">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>

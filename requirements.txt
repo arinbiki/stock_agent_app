@@ -1,0 +1,5 @@
+# List all Python packages needed
+Flask
+yfinance
+mysql-connector-python
+python-dotenv
