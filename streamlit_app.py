@@ -1,18 +1,10 @@
-
 import streamlit as st
 import pandas as pd
 import yfinance as yf
 import mysql.connector
 import datetime
 import warnings
-<<<<<<< HEAD
-from app.scraper import get_stock_data
-from app.database import connect_to_db, save_data_to_db
-import streamlit as st
-import mysql.connector
-=======
 import re
->>>>>>> ac22aad (Update: multi-asset input, bugfixes, and secrets config)
 
 try:
     db = mysql.connector.connect(
@@ -29,8 +21,8 @@ except Exception as e:
     st.error(f"Database connection failed: {e}")
 warnings.filterwarnings("ignore", category=FutureWarning)
 
-st.set_page_config(page_title="Multi-Asset Data Scraper", page_icon="�", layout="centered")
-st.title("� Multi-Asset Data Scraper (Stocks, Indexes, FX, Commodities)")
+st.set_page_config(page_title="Multi-Asset Data Scraper", page_icon="", layout="centered")
+st.title(" Multi-Asset Data Scraper (Stocks, Indexes, FX, Commodities)")
 
 st.markdown("""
 Select asset type, choose assets (or fetch all), and date range (max 15 years). Data will be saved to MySQL and available for download.
