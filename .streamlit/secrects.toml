@@ -1,5 +1,1 @@
-DB_HOST = "mysql.gb.stackcp.com"
-DB_USER = "python_user1"
-DB_PASSWORD = "Arindam1999@"
-DB_NAME = "myuser_stockdata-35313139ae50"
-DB_PORT = "40350"
+
